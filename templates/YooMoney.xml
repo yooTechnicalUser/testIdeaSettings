@@ -1,0 +1,40 @@
+<templateSet group="YooMoney">
+  <template name="lgd" value="private static final Logger log = LoggerFactory.getLogger($CLAZZ$.class);" description="Adds private static final SLF4J logger to current class" toReformat="false" toShortenFQNames="true">
+    <variable name="CLAZZ" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="swcjd" value="@SuppressWarnings(&quot;checkstyle:javadoctype&quot;)" description="Adds SuppressWarnings checkstyle:javadoctype" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="log" value="log.info($FORMAT$);" description="Logs all parameters of a current method" toReformat="false" toShortenFQNames="true">
+    <variable name="FORMAT" expression="groovyScript(&quot;('\&quot;' + _2 + '(): ' + _1.collect { it + '={}'}.join(', ') + '\&quot;, ' + _1.collect { it }.join(', '))&quot;, methodParameters(), methodName())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="rnn" value="java.util.Objects.requireNonNull($SELECTION$, &quot;$SELECTION$&quot;)$END$" description="Wraps current selection into &quot;requireNonNull()&quot; call" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="test" value="@org.testng.annotations.Test&#10;public void test$END$() {&#10;&#10;}" description="Adds TestNG declaration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="ts" value="@org.testng.annotations.Test&#10;fun test$END$() {&#10;&#10;}" description="Adds TestNG declaration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="KOTLIN_CLASS" value="true" />
+    </context>
+  </template>
+  <template name="ens" value="public enum $var1$ implements ru.yandex.money.common.util.Enums.StringRepr {&#10;&#10;    NONE(&quot;none&quot;),&#10;&#10;    ;&#10;&#10;    private final String code;&#10;&#10;    $var1$(@javax.annotation.Nonnull String code) {&#10;        this.code = java.util.Objects.requireNonNull(code, &quot;code&quot;);&#10;    }&#10;&#10;    @javax.annotation.Nonnull&#10;    @Override&#10;    public String getCode() {&#10;        return code;&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="" defaultValue="A" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
